@@ -2,9 +2,13 @@
 
 // Animation GSAP timeline on load event
 window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.querySelector(".loader").style.display = "none";
+  }, 400);
+
+  // Setelah loader hilang, baru munculkan sweetalert
   Swal.fire({
     title: "Do you want to play music in the background?",
-    // text: "You won't be able to revert this!",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -12,17 +16,10 @@ window.addEventListener("load", () => {
     confirmButtonText: "Yes",
     cancelButtonText: "No",
   }).then((result) => {
-
-    setTimeout(() => {
-      document.querySelector(".loader").style.display = "none";
-    }, 30);
-    
     if (result.isConfirmed) {
       document.querySelector(".song").play();
-      animationTimeline();
-    } else {
-      animationTimeline();
     }
+    animationTimeline();
   });
 });
 
