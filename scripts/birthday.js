@@ -12,6 +12,11 @@ window.addEventListener("load", () => {
     confirmButtonText: "Yes",
     cancelButtonText: "No",
   }).then((result) => {
+
+    setTimeout(() => {
+      document.querySelector(".loader").style.display = "none";
+    }, 30);
+    
     if (result.isConfirmed) {
       document.querySelector(".song").play();
       animationTimeline();
@@ -291,10 +296,6 @@ const animationTimeline = () => {
       },
       "+=1"
     );
-
-    setTimeout(() => {
-  document.querySelector(".loader").style.display = "none";
-}, 1200);
 
 function typeWrite(el, text, speed = 50) {
   let i = 0;
