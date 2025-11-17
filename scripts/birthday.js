@@ -310,9 +310,20 @@ window.addEventListener("load", () => {
 });
 
 
-  // restrt animation on click
-  const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    tl.restart();
-  });
+ // REPLAY BUTTON
+const replayBtn = document.getElementById("replay");
+
+// sembunyiin tombol di awal
+replayBtn.style.display = "none";
+
+// munculin tombol setelah semua animasi selesai
+tl.call(() => {
+  replayBtn.style.display = "block";
+});
+
+// restart animasi saat tombol ditekan
+replayBtn.addEventListener("click", () => {
+  replayBtn.style.display = "none"; 
+  tl.restart();
+});
 };
