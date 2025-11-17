@@ -8,13 +8,13 @@ window.addEventListener("load", () => {
 
   // Setelah loader hilang, baru munculkan sweetalert
   Swal.fire({
-    title: "Do you want to play music in the background?",
+    title: "Mau pake musik enggakk?",
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
     cancelButtonColor: "#d33",
-    confirmButtonText: "Yes",
-    cancelButtonText: "No",
+    confirmButtonText: "Iyah",
+    cancelButtonText: "Enggak deh",
   }).then((result) => {
     if (result.isConfirmed) {
       document.querySelector(".song").play();
