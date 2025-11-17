@@ -5,7 +5,22 @@
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
+  background: linear-gradient(135deg, #ffe3ec, #ffeefc, #fff7ff);
+  background-size: 400% 400%;
+  animation: gradientMove 12s ease infinite;
 }
+
+.loader {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  font-size: 1.5rem;
+  z-index: 9999;
+}
+
 
 /* Login page styles */
 .login_container {
@@ -18,14 +33,15 @@ body {
 }
 
 .login_form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 400px;
-  height: 300px;
-  border: 1px solid #ccc;
-  border-radius: 20px;
+  background: #ffffffd9;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  padding: 30px;
+  transition: .3s;
+}
+
+.login_form:hover {
+  transform: translateY(-5px);
 }
 
 input[type="text"],
@@ -45,21 +61,14 @@ input[type="password"]:focus {
 }
 
 button[type="submit"] {
-  width: 300px;
-  height: 40px;
-  border: none;
-  border-radius: 5px;
-  background-color: #000;
-  color: #fff;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
+  background: linear-gradient(45deg, #ff67a4, #ff84c1);
+  box-shadow: 0 5px 15px rgba(255,105,180,0.4);
+  transition: .3s ease;
 }
 
 button[type="submit"]:hover {
-  background-color: #fff;
-  color: #000;
-  border: 2px solid #000;
+  box-shadow: 0 8px 25px rgba(255,105,180,0.6);
+  transform: translateY(-3px);
 }
 
 .login_description {
@@ -69,6 +78,17 @@ button[type="submit"]:hover {
   padding: 0 10px;
   text-align: center;
 }
+
+.profile-picture {
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
 
 /* Birtday page styles */
 .song {
@@ -285,9 +305,27 @@ button[type="submit"]:hover {
   font-weight: lighter;
 }
 
-#replay {
+.replay_button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  background: #ff9bd4;
+  color: #fff;
   cursor: pointer;
-  z-index: 3;
+  box-shadow: 0 5px 20px rgba(255,0,150,0.3);
+  transition: .2s;
+}
+
+.replay_button:hover {
+  transform: scale(1.05);
+}
+
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
 }
 
 /* Media Queries */
@@ -360,4 +398,6 @@ button[type="submit"]:hover {
     font-size: 1.5rem;
     font-weight: lighter;
   }
+
+  
 }
