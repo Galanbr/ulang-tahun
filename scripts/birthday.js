@@ -292,7 +292,27 @@ const animationTimeline = () => {
       "+=1"
     );
 
-  // restart animation on click
+    setTimeout(() => {
+  document.querySelector(".loader").style.display = "none";
+}, 1200);
+
+function typeWrite(el, text, speed = 50) {
+  let i = 0;
+  const interval = setInterval(() => {
+    el.textContent += text.charAt(i);
+    i++;
+    if (i >= text.length) clearInterval(interval);
+  }, speed);
+}
+
+window.addEventListener("load", () => {
+  const greet = document.getElementById("greetingText");
+  greet.textContent = "";
+  typeWrite(greet, "I really like your name btw! It's so unique and beautiful, just like you!");
+});
+
+
+  // restrt animation on click
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
