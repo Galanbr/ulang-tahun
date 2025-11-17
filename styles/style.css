@@ -318,6 +318,7 @@ button[type="submit"]:hover {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+  bottom: 40px;
 }
 
 .replay_button:hover {
