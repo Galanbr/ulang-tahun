@@ -315,11 +315,13 @@ button[type="submit"]:hover {
   cursor: pointer;
   box-shadow: 0 5px 20px rgba(255,0,150,0.3);
   transition: .2s;
-  position: absolute;
+  position: fixed; /* ← ini kuncinya */
   left: 50%;
   transform: translateX(-50%);
-  bottom: 40px;
+  bottom: 50px; /* geser dari bawah layar */
+  z-index: 999; /* biar ga ketutup elemen lain */
 }
+
 
 .replay_button:hover {
   transform: scale(1.05);
